@@ -1,0 +1,97 @@
+# systemhealthcheck
+
+`systemhealthcheck` is a small, production-style Python package that exposes system health metrics such as:
+
+- CPU usage percentage
+- Memory usage percentage
+- Disk usage percentage
+- Uptime in seconds
+- Basic system information
+
+It is designed as a **portfolio-ready project** to showcase skills in Python packaging, testing, and CI/CD.
+
+## 🚀 Installation (local development)
+
+Clone the repository and install in editable mode:
+
+```bash
+pip install -e ".[dev]"
+```
+
+> This installs the package and dev dependencies (like `pytest`).
+
+## 🧪 Usage
+
+```python
+from systemhealthcheck import get_health
+
+print(get_health())
+```
+
+Example output:
+
+```json
+{
+  "cpu_percent": 12.5,
+  "memory_percent": 67.2,
+  "disk_percent": 55.0,
+  "uptime_seconds": 120,
+  "system": "Linux",
+  "hostname": "my-machine",
+  "pid": 1234
+}
+```
+
+## 🧪 Running tests
+
+```bash
+pytest
+```
+
+## 🏗️ Building the package
+
+```bash
+python -m build
+```
+
+This will create distribution artifacts inside the `dist/` folder.
+
+## 📦 (Optional) Upload to PyPI
+
+1. Install twine:
+
+```bash
+pip install twine
+```
+
+2. Upload:
+
+```bash
+twine upload dist/*
+```
+
+## 📁 Project structure
+
+```text
+systemhealthcheck/
+├── src/
+│   └── systemhealthcheck/
+│       ├── __init__.py
+│       ├── health.py
+│       └── utils.py
+├── tests/
+│   └── test_health.py
+├── pyproject.toml
+├── README.md
+├── LICENSE
+└── .github/
+    └── workflows/
+        └── ci.yml
+```
+
+## ✅ Features demonstrated
+
+- Modern Python packaging with `pyproject.toml`
+- `src/` layout and automatic package discovery
+- Unit tests with `pytest`
+- CI pipeline using GitHub Actions
