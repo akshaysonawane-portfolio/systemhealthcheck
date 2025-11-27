@@ -1,4 +1,4 @@
-from src.systemhealthcheck.health import get_health
+from systemhealthcheck.health import get_health
 
 
 def test_health_contains_expected_keys():
