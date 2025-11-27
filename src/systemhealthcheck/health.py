@@ -22,6 +22,7 @@ def get_health() -> Dict[str, Any]:
     return {
         "cpu_percent": psutil.cpu_percent(interval=0.1),
         "memory_percent": psutil.virtual_memory().percent,
+        "cpu_per_core": psutil.cpu_percent(interval=0.2, percpu=True),
         "disk_percent": psutil.disk_usage("/").percent,
         "uptime_seconds": int(time.time() - _START_TIME),
         "system": platform.system(),

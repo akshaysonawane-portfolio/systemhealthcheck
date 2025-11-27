@@ -8,6 +8,7 @@ import platform
 def monitor_health(duration=5, interval=1):
     """
     Print system health in a tabular format for duration seconds.
+    Now includes cleanly formatted per-core CPU usage.
     """
 
     # Print header once
@@ -21,6 +22,7 @@ def monitor_health(duration=5, interval=1):
 
         # CPU, memory, disk info
         cpu = psutil.cpu_percent(interval=0.1)
+        per_core = psutil.cpu_percent(interval=0.1, percpu=True)
         mem = psutil.virtual_memory().percent
         disk = psutil.disk_usage("/").percent
 
@@ -37,13 +39,22 @@ def monitor_health(duration=5, interval=1):
 
         host = platform.node()
 
-        # Print table row
+        # Print main table row
         print(f"{host:<15}{cpu:<10.1f}{mem:<10.1f}{gpu:<10.1f}{disk:<10.1f}{ram_gb:<10.2f}")
+        print("\nCPU Per Core:")
 
+        # Pretty vertical formatting
+        for i, v in enumerate(per_core):
+            print(f"  Core {i:<2}: {v:>5.1f}%")
+
+        print("-" * 65)
+
+        # Maintain interval timing
         next_time += interval
         sleep_time = next_time - time.time()
         if sleep_time > 0:
             time.sleep(sleep_time)
+
 
 
 def main():
