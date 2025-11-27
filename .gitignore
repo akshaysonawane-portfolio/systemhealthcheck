@@ -1,0 +1,82 @@
+# ================================
+# Python
+# ================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.venv/
+env/
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.whl
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Ruff / Black
+.ruff_cache/
+.black/
+
+# ================================
+# FastAPI / Uvicorn / Logs
+# ================================
+*.log
+*.pid
+
+# ================================
+# Docker
+# ================================
+docker-compose.override.yml
+docker-compose.*.yml
+*.pid
+*.seed
+*.bak
+*.swp
+
+# Docker build artifacts
+**/.dockerignore
+
+# ================================
+# IDE / Editor Settings
+# ================================
+.vscode/
+.idea/
+*.iml
+
+# ================================
+# OS Files
+# ================================
+.DS_Store
+Thumbs.db
